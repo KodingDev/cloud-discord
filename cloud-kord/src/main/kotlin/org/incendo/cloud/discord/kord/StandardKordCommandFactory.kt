@@ -125,7 +125,7 @@ internal class StandardKordCommandFactory<C : Any>(
 
                 // It's the best we've got
                 val accessMap = rootNode.nodeMeta().getOrNull(CommandNode.META_KEY_ACCESS)
-                val senderType = rootNode.command().senderType().map { v -> v.type }.orElse(null)
+                val senderType = rootNode.command()?.senderType()?.map { v -> v.type }?.orElse(null)
 
                 accessMap?.get(senderType)
                     ?.let { it as? DiscordPermission }
